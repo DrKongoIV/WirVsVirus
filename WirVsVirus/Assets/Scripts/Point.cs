@@ -9,6 +9,8 @@ public class Point : MonoBehaviour
 	public float incubationTime;
 	public float infectedTime;
 
+	public float speed = 1;
+
 	public Edge edge;
 	public Node goal;
 
@@ -33,5 +35,15 @@ public class Point : MonoBehaviour
 			}
 			infectedTime += Time.deltaTime;
 		}
+
+		if(transform.position == goal.transform.position)
+		{
+			edge = goal.getRandomEdge();
+			if (edge.node1 == goal)
+				goal = edge.node2;
+			else
+				goal = edge.node1;
+		}
+		transform.position = Vector3.MoveTowards(transform.position, goal.transform.position, Time.deltaTime * speed);
     }
 }

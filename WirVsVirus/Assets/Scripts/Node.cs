@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Node : MonoBehaviour
@@ -17,4 +16,9 @@ public class Node : MonoBehaviour
     {
         
     }
+
+	public Edge getRandomEdge()
+	{
+		return edges[Random.Range(0, edges.Count)];
+	}
 }
