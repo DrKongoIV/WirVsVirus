@@ -1,1 +1,3 @@
 # WirVsVirus
+Auf der Basis von OSM-Karten muss der Spieler Straßen so abriegeln, um den Virus einzudämmen. Auf der Basis von Unity werden sich Punkte auf dem Spielfeld nahezu zufällig bewegen, immer wenn sich zwei Punkte berühren, infizieren sie sich gegenseitig, sollten sie infiziert sein. Die Inkubationszeit wird von Tagen auf Sekunden übertragen. Komplexere Logik ist denkbar, wie z.B. immune Punkte, gesunde Punkte, Ausgangssperren, etc.
+Denkbar wäre, nach dem Hackathon. Das Problem auf ganze Länder oder Kontinente auszuweiten und so durch gezielte Grenzschließungen die Ausbreitung zu stoppen. 
