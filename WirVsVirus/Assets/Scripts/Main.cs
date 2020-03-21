@@ -26,7 +26,7 @@ public class Main : MonoBehaviour
     {
         for (int i = 0; i < numberOfPoints; i++)
         {
-            p.pointSpawn(speed, incubationTime, false);
+            pointSpawn(speed, incubationTime, false);
             // TODO warten - siehe spawnFrequency
         }
     }
