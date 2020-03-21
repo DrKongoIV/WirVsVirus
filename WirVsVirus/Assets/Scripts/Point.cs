@@ -10,12 +10,36 @@ public class Point : MonoBehaviour
 	public float infectedTime;
 
 	public float speed = 1;
+    public float personalDeviation = 2;
 
 	public Edge edge;
 	public Node goal;
 
 	SpriteRenderer render;
+    public GameObject prefab;
 
+    public void setIncubationTime(float t)
+    {
+        incubationTime = Random.Range(t - personalDeviation, t + personalDeviation);
+    }
+
+    public float getIncubationTime()
+    {
+        return incubationTime;
+    }
+
+    public void setSpeed(float s)
+    {
+        speed = s;
+    }
+
+    public void pointSpawn(float speed, float incTime, bool infect)
+    {
+        Point p = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Point>();
+        p.setIncubationTime(incTime);
+        p.setSpeed(speed);
+        infected = infect;
+    }
 
     // Start is called before the first frame update
     void Start()
