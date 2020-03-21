@@ -16,19 +16,15 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Patient 0
-        pointSpawn(speed, incubationTime, false);
+		// Patient 0
+		StartCoroutine(Spawner());
         setMap(); // TODO
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < numberOfPoints; i++)
-        {
-            pointSpawn(speed, incubationTime, false);
-            // TODO warten - siehe spawnFrequency
-        }
+        
     }
 
 	public void pointSpawn(float speed, float incTime, bool infect)
@@ -37,5 +33,17 @@ public class Main : MonoBehaviour
 		p.setIncubationTime(incTime);
 		p.setSpeed(speed);
 		p.infected = infect;
+		Node[] nodes = FindObjectsOfType<Node>();
+		p.goal = nodes[Random.Range(0, nodes.Length)];
+		p.transform.position = p.goal.transform.position;
+	}
+
+	private IEnumerator Spawner()
+	{
+		for (int i = 0; i < numberOfPoints; i++)
+		{
+			pointSpawn(speed, incubationTime, false);
+			yield return new WaitForSeconds(1/spawnFrequency);
+		}
 	}
 }
