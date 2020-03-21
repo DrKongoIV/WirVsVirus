@@ -17,6 +17,7 @@ public class Main : MonoBehaviour
     void Start()
     {
 		// Patient 0
+		pointSpawn(speed, incubationTime, true);
 		StartCoroutine(Spawner());
         setMap(); // TODO
     }

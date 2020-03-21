@@ -61,4 +61,14 @@ public class Point : MonoBehaviour
 		}
 		transform.position = Vector3.MoveTowards(transform.position, goal.transform.position, Time.deltaTime * speed);
     }
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		Point p = collider.GetComponent<Point>();
+		if(p != null)
+		{
+			if (p.infected)
+				infected = true;
+		}
+	}
 }
