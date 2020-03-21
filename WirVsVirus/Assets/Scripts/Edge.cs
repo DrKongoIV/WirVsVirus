@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class Edge : MonoBehaviour
 {
 
@@ -10,7 +11,6 @@ public class Edge : MonoBehaviour
 
 	LineRenderer rend;
 
-	[ExecuteInEditMode]
 	void Start()
     {
 		rend = GetComponent<LineRenderer>();
@@ -18,7 +18,7 @@ public class Edge : MonoBehaviour
 		node2.edges.Add(this);
     }
 
-	[ExecuteInEditMode]
+
 	void Update()
     {
 		rend.SetPositions(new Vector3[] { node1.transform.position, node2.transform.position });
