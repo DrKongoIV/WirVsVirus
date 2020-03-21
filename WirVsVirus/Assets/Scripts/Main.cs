@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    float incubationTime = 6; // Incubation Time in Seconds
-    float speed = 1; // Speed of Points - how much deltaTime
-    int numberOfPoints = 100;
-    float spawnFrequency = 1; // TODO fürs Warten
-    Point p;
+    public float incubationTime = 6; // Incubation Time in Seconds
+	public float speed = 1; // Speed of Points - how much deltaTime
+	public int numberOfPoints = 100;
+	public float spawnFrequency = 1; // TODO fürs Warten
+
+	public GameObject prefab;
 
     void setMap() { } // TODO
 
@@ -16,7 +17,7 @@ public class Main : MonoBehaviour
     void Start()
     {
         // Patient 0
-        p.pointSpawn(speed, incubationTime, false);
+        pointSpawn(speed, incubationTime, false);
         setMap(); // TODO
     }
 
@@ -29,4 +30,12 @@ public class Main : MonoBehaviour
             // TODO warten - siehe spawnFrequency
         }
     }
+
+	public void pointSpawn(float speed, float incTime, bool infect)
+	{
+		Point p = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Point>();
+		p.setIncubationTime(incTime);
+		p.setSpeed(speed);
+		p.infected = infect;
+	}
 }

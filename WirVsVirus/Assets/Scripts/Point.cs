@@ -16,7 +16,6 @@ public class Point : MonoBehaviour
 	public Node goal;
 
 	SpriteRenderer render;
-    public GameObject prefab;
 
     public void setIncubationTime(float t)
     {
@@ -31,14 +30,6 @@ public class Point : MonoBehaviour
     public void setSpeed(float s)
     {
         speed = s;
-    }
-
-    public void pointSpawn(float speed, float incTime, bool infect)
-    {
-        Point p = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Point>();
-        p.setIncubationTime(incTime);
-        p.setSpeed(speed);
-        infected = infect;
     }
 
     // Start is called before the first frame update
