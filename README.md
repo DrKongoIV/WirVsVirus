@@ -1,3 +1,6 @@
-# WirVsVirus
-Auf der Basis von OSM-Karten muss der Spieler Straßen so abriegeln, um den Virus einzudämmen. Auf der Basis von Unity werden sich Punkte auf dem Spielfeld nahezu zufällig bewegen, immer wenn sich zwei Punkte berühren, infizieren sie sich gegenseitig, sollten sie infiziert sein. Die Inkubationszeit wird von Tagen auf Sekunden übertragen. Komplexere Logik ist denkbar, wie z.B. immune Punkte, gesunde Punkte, Ausgangssperren, etc.
-Denkbar wäre, nach dem Hackathon. Das Problem auf ganze Länder oder Kontinente auszuweiten und so durch gezielte Grenzschließungen die Ausbreitung zu stoppen. 
+Wir sind ein Team aus Informatikstudenten der Unis Aachen und Konstanz.
+Viele werden das Spiel „Plague Inc.“ kennen, in welchem der Spieler die Welt mit einer tödlichen Seuche infizieren und die Menschheit so auslöschen muss.
+Unser Spiel „Pandemic Stopper“ ist umgekehrt. Hier muss der Spieler die Infizierten so eindämmen, sodass die meisten Menschen gesund bleiben. Beim Beginn des Spiels gibt es genau einen Infizierten – den Patient 0. Dieser steckt dann weitere Spieler an. Die Schwierigkeit dabei: Jeder Mensch hat eine individuelle Inkubationszeit, die von der Norm abweicht und Infizierte werden erst nach der Inkubationszeit als Kranke angezeigt und so für den Spieler sichtbar.
+Das Ziel des Spielers soll es sein, möglichst wenig Infizierte zu haben und das öffentliche Leben mit möglichst wenig Straßensperren so gering wie möglich einzuschränken.
+Mit unserem Spiel wollen wir für die Allgemeinheit erfahrbar machen, wie schwer es ist, einen Virus vernünftig einzudämmen und gleichzeitig das öffentliche Leben nicht zu stark einzuschränken.
+In Zukunft würden wir gerne das Spielfeld automatisch auf jede Stadtkarte der Welt anwenden können, die Benutzeroberfläche verschönern und in die Modelle Forschungsdaten einer beliebigen Infektionskrankheit einfließen lassen.
