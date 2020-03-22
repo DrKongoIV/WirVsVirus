@@ -8,11 +8,12 @@ public class Point : MonoBehaviour
 	public bool visible;
 	public float incubationTime;
 	public float infectedTime;
-
-	public float speed = 1;
+	public float speed;
     public float personalDeviation = 2;
+    public float infectionProbability;
 
-	public Edge edge;
+
+    public Edge edge;
 	public Node goal;
 
 	SpriteRenderer render;
@@ -76,8 +77,14 @@ public class Point : MonoBehaviour
 		Point p = collider.GetComponent<Point>();
 		if(p != null)
 		{
-			if (p.infected)
-				infected = true;
+            if (p.infected)
+            {
+                float rand = Random.Range(0f, 1f);
+                if (rand < infectionProbability)
+                {
+                    infected = true;
+                }
+            }
 		}
 	}
 }
