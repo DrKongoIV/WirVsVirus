@@ -15,22 +15,23 @@ Um automatisch von osm.org das Spielfeld generieren zu können. Befindet sich in
 Das wichtige Zeugs passiert in **Assets**.
 
 #### Assets
-**Materials** sind die Materialien, aus denen Sachen bestehen. (ähnlich wie Texturen)
-**Prefabs** sind die Vorlagen unserer Elemente
+  * **Materials** sind die Materialien, aus denen Sachen bestehen. (ähnlich wie Texturen)
+  * **Prefabs** sind die Vorlagen unserer Elemente
 
-##### Unsere Elemente
-**Node** und **Edge** sind die Knoten und Kanten unseres Graphen, welche als Kreuzungen und Kanten verstanden werden können.
-**Points** sind die einzelnen "Menschen", also mögliche Infizierte.
+    * ##### Unsere Elemente
+      * **Node** und **Edge** sind die Knoten und Kanten unseres Graphen, welche als Kreuzungen und Kanten verstanden werden können.
+      * **Points** sind die einzelnen "Menschen", also mögliche Infizierte.
 
-In **Resources** sind z.B. die Bilder gespeichert.
-**Scenes** sind Spielfelder.
+  * In **Resources** sind z.B. die Bilder gespeichert.
+  * **Scenes** sind Spielfelder.
+  * **Scripts** sind unsere Skripte. Sie handlen alle Aktionen.
 
-##### Scripts
-**Edge** sind die Kanten, also in unserem Fall Straßen. Hier werden auch die Mouse-Events behandelt, sowie die Straßensperrungen.
-**Generator** und **GeneratorEditor** sollen aus JSON-Dateien, welche von dem Script des Ordners /scripts generiert wurden Nodes und Edges erzeugen.
-**Line Helper** ist eine Hilfe zum Linien zwischen Nodes zu malen.
-**Main legt die Parameter für die Infektionskrankheit fest.**
-**Node** sind die Kreuzungen. Hier werden die anliegenden Kanten für die Punkte zufällig ausgewählt.
-**Point** sind die einzelnen "Menschen", also mögliche Infizierte. Hier werden die Collisions zwischen den Punkten, also die Infektionen, die Bewegungungen, die Inkubationszeit, etc. gemanagt.
+    * ##### Scripts
+      * **Edge** sind die Kanten, also in unserem Fall Straßen. Hier werden auch die Mouse-Events behandelt, sowie die Straßensperrungen.
+      * **Generator** und **GeneratorEditor** sollen aus JSON-Dateien, welche von dem Script des Ordners /scripts generiert wurden Nodes und Edges erzeugen.
+      * **Line Helper** ist eine Hilfe zum Linien zwischen Nodes zu malen.
+      * **Main legt die Parameter für die Infektionskrankheit fest.**
+      * **Node** sind die Kreuzungen. Hier werden die anliegenden Kanten für die Punkte zufällig ausgewählt.
+      * **Point** sind die einzelnen "Menschen", also mögliche Infizierte. Hier werden die Collisions zwischen den Punkten, also die Infektionen, die Bewegungungen, die Inkubationszeit, etc. gemanagt.
 
 In **Logs**, **Packages** und **ProjectSettings** befinden sich Unity-eigene Dateien.
