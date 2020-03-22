@@ -15,6 +15,7 @@ public class Edge : MonoBehaviour
 	public bool hover;
 	public bool deactivated;
 
+
 	LineRenderer rend;
 	PolygonCollider2D polCollider;
 
