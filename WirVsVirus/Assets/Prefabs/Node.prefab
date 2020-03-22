@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4582019974131144905}
   - component: {fileID: 4582019974131144904}
   m_Layer: 0
-  m_Name: "M\xFCnster"
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -43,5 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5847beb607899c94ca82d25f7579df89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edges:
-  - {fileID: 0}
+  edges: []

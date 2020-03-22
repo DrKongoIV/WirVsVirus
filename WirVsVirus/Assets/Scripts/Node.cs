@@ -8,7 +8,11 @@ public class Node : MonoBehaviour
 
     void Start()
     {
-        
+		edges = new List<Edge>();
+		foreach (Edge e in FindObjectsOfType<Edge>()) {
+			if(e.node1  == this || e.node2 == this)
+				edges.Add(e);
+		}
     }
 
     // Update is called once per frame
@@ -19,6 +23,9 @@ public class Node : MonoBehaviour
 
 	public Edge getRandomEdge()
 	{
-		return edges[Random.Range(0, edges.Count)];
+		if (edges.Count > 0)
+			return edges[Random.Range(0, edges.Count)];
+		else
+			return null;
 	}
 }
