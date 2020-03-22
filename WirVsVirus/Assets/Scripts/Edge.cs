@@ -25,7 +25,7 @@ public class Edge : MonoBehaviour
 		Vector2 offset = new Vector2(node1.transform.position.x - node2.transform.position.x, node1.transform.position.y - node2.transform.position.y);
 		offset = Vector2.Perpendicular(offset);
 		offset.Normalize();
-		offset.Scale(new Vector2(0.05f, 0.05f));
+		offset.Scale(new Vector2(0.1f, 0.1f));
 
 		polCollider.points = new Vector2[] {	new Vector2(node1.transform.position.x + offset.x, node1.transform.position.y + offset.y),
 											new Vector2(node1.transform.position.x - offset.x, node1.transform.position.y - offset.y),
@@ -52,6 +52,7 @@ public class Edge : MonoBehaviour
 				node1.edges.Remove(this);
 				node2.edges.Remove(this);
 				rend.material = inactive;
+				rend.startWidth = 0.1f;
 			}
 		}
 	}
@@ -65,6 +66,9 @@ public class Edge : MonoBehaviour
 	private void OnMouseExit()
 	{
 		hover = false;
-		rend.startWidth = 0.05f;
+		if(deactivated)
+			rend.startWidth = 0.05f;
+		else
+			rend.startWidth = 0.00f;
 	}
 }
