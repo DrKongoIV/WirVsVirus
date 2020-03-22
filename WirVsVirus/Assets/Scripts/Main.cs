@@ -8,6 +8,7 @@ public class Main : MonoBehaviour
 	public float speed = 1; // Speed of Points - how much deltaTime
 	public int numberOfPoints = 100;
 	public float spawnFrequency = 1; // TODO fürs Warten
+    public float infectionProbability = 0.6f;
 
 	public GameObject prefab;
 
@@ -17,7 +18,7 @@ public class Main : MonoBehaviour
     void Start()
     {
 		// Patient 0
-		pointSpawn(speed, incubationTime, true);
+		pointSpawn(speed, incubationTime, true, infectionProbability);
 		StartCoroutine(Spawner());
         setMap(); // TODO
     }
@@ -28,7 +29,7 @@ public class Main : MonoBehaviour
         
     }
 
-	public void pointSpawn(float speed, float incTime, bool infect)
+	public void pointSpawn(float speed, float incTime, bool infect, float infectionProb)
 	{
 		Point p = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Point>();
 		p.setIncubationTime(incTime);
@@ -37,13 +38,14 @@ public class Main : MonoBehaviour
 		Node[] nodes = FindObjectsOfType<Node>();
 		p.goal = nodes[Random.Range(0, nodes.Length)];
 		p.transform.position = p.goal.transform.position;
+        p.infectionProbability = infectionProb;
 	}
 
 	private IEnumerator Spawner()
 	{
 		for (int i = 0; i < numberOfPoints; i++)
 		{
-			pointSpawn(speed, incubationTime, false);
+			pointSpawn(speed, incubationTime, false, infectionProbability);
 			yield return new WaitForSeconds(1/spawnFrequency);
 		}
 	}
