@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\JSON\Source\Reflection\fsMetaType.cs" />
     <Compile Include="Assets\Scripts\JSON\Source\Reflection\fsReflectionUtility.cs" />
     <Compile Include="Assets\Scripts\JSON\Source\Reflection\fsTypeCache.cs" />
+    <Compile Include="Assets\Scripts\Line Helper.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Point.cs" />

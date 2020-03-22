@@ -20,14 +20,13 @@ public class Edge : MonoBehaviour
 
 	void Start()
     {
-		if(node1 == null || node2 == null)
+		rend = GetComponent<LineRenderer>();
+		polCollider = GetComponent<PolygonCollider2D>();
+		if (node1 == null || node2 == null)
 		{
 			Debug.LogWarning("Edge " + name + " broken");
 		} else
 		{
-			rend = GetComponent<LineRenderer>();
-			polCollider = GetComponent<PolygonCollider2D>();
-
 			Vector2 offset = new Vector2(node1.transform.position.x - node2.transform.position.x, node1.transform.position.y - node2.transform.position.y);
 			offset = Vector2.Perpendicular(offset);
 			offset.Normalize();
