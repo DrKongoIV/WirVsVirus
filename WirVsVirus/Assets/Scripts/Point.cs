@@ -50,18 +50,24 @@ public class Point : MonoBehaviour
 			}
 			infectedTime += Time.deltaTime;
 		}
-
-		if(transform.position == goal.transform.position)
+		if(goal != null)
 		{
-			edge = goal.getRandomEdge();
-			if(edge != null)
+			if (transform.position == goal.transform.position)
 			{
-				if (edge.node1 == goal)
-					goal = edge.node2;
-				else
-					goal = edge.node1;
+				edge = goal.getRandomEdge();
+				if (edge != null)
+				{
+					if (edge.node1 == goal)
+						goal = edge.node2;
+					else
+						goal = edge.node1;
+				}
 			}
+		} else
+		{
+			Debug.LogWarning("Goal is null");
 		}
+		
 		transform.position = Vector3.MoveTowards(transform.position, goal.transform.position, Time.deltaTime * speed);
     }
 

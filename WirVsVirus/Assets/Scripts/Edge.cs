@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,40 +20,51 @@ public class Edge : MonoBehaviour
 
 	void Start()
     {
-		rend = GetComponent<LineRenderer>();
-		polCollider = GetComponent<PolygonCollider2D>();
+		if(node1 == null || node2 == null)
+		{
+			Debug.LogWarning("Edge " + name + " broken");
+		} else
+		{
+			rend = GetComponent<LineRenderer>();
+			polCollider = GetComponent<PolygonCollider2D>();
 
-		Vector2 offset = new Vector2(node1.transform.position.x - node2.transform.position.x, node1.transform.position.y - node2.transform.position.y);
-		offset = Vector2.Perpendicular(offset);
-		offset.Normalize();
-		offset.Scale(new Vector2(0.1f, 0.1f));
+			Vector2 offset = new Vector2(node1.transform.position.x - node2.transform.position.x, node1.transform.position.y - node2.transform.position.y);
+			offset = Vector2.Perpendicular(offset);
+			offset.Normalize();
+			offset.Scale(new Vector2(0.1f, 0.1f));
 
-		polCollider.points = new Vector2[] {	new Vector2(node1.transform.position.x + offset.x, node1.transform.position.y + offset.y),
+			polCollider.points = new Vector2[] {    new Vector2(node1.transform.position.x + offset.x, node1.transform.position.y + offset.y),
 											new Vector2(node1.transform.position.x - offset.x, node1.transform.position.y - offset.y),
 											new Vector2(node2.transform.position.x - offset.x, node2.transform.position.y - offset.y),
 											new Vector2(node2.transform.position.x + offset.x, node2.transform.position.y + offset.y)};
+		}
     }
 
 
 	void Update()
     {
-		transform.position = new Vector3(0, 0, -2);
-		rend.SetPositions(new Vector3[] { node1.transform.position, node2.transform.position });
-		if(Input.GetMouseButtonDown(0) && hover)
+		if (node1 != null && node2 != null)
 		{
-			if(deactivated)
+			transform.position = new Vector3(0, 0, -2);
+			rend.SetPositions(new Vector3[] { node1.transform.position, node2.transform.position });
+
+			if (Input.GetMouseButtonDown(0) && hover)
 			{
-				deactivated = false;
-				node1.edges.Add(this);
-				node2.edges.Add(this);
-				rend.material = active;
-			} else
-			{
-				deactivated = true;
-				node1.edges.Remove(this);
-				node2.edges.Remove(this);
-				rend.material = inactive;
-				rend.startWidth = 0.1f;
+				if (deactivated)
+				{
+					deactivated = false;
+					node1.edges.Add(this);
+					node2.edges.Add(this);
+					rend.material = active;
+				}
+				else
+				{
+					deactivated = true;
+					node1.edges.Remove(this);
+					node2.edges.Remove(this);
+					rend.material = inactive;
+					rend.startWidth = 0.1f;
+				}
 			}
 		}
 	}
